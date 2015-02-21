@@ -1,0 +1,14 @@
+To be able to "make" this project, you need to download and configure/make newlib. Because this projects uses some functions like memcpy utility function.
+
+Download newlib from ftp://sourceware.org/pub/newlib/index.html and run configure with following options. Than run make. You will have newlib archive files required for the linker in "newlib-2.2.0-1/arm-none-eabi/newlib", so you have to modify you makefile
+
+%../configure --target=arm-none-eabi  \
+             --enable-interwork  \
+             --disable-newlib-supplied-syscalls  \
+             --with-gnu-ld  \
+             --with-gnu-as  \
+             --disable-shared
+
+%make 
+
+*I downloaded newlib 2.2.0.1, and did cross compile from a different directory build directory (newlib-2.2.0-1-build)
